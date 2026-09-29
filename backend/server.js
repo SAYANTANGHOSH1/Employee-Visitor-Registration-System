@@ -59,7 +59,7 @@ app.delete("/api/visitors/:id", async (req, res) => {
   }
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 // Update Visitor
 app.put("/api/visitors/:id", async (req, res) => {
   try {
@@ -83,9 +83,9 @@ mongoose
   .then(() => {
     console.log("MongoDB connected successfully!");
 
-    app.listen(PORT, () => {
-      console.log(`Server is running on http://localhost:${PORT}`);
-    });
+    app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server is running on port ${PORT}`);
+});
   })
   .catch((error) => {
     console.log("MongoDB connection failed:");

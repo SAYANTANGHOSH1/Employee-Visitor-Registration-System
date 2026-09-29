@@ -4,7 +4,7 @@ import "./App.css";
 function App() {
   const [visitors, setVisitors] = useState([]);
   useEffect(() => {
-  fetch("http://localhost:5000/api/visitors")
+  fetch("https://employee-visitor-registration-system.onrender.com/api/visitors")
     .then((response) => response.json())
     .then((data) => {
       const formattedVisitors = data.map((visitor) => ({
@@ -45,7 +45,7 @@ function App() {
   if (editingId) {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/visitors/${editingId}`,
+        `https://employee-visitor-registration-system.onrender.com/api/visitors/${editingId}`,
         {
           method: "PUT",
           headers: {
@@ -85,7 +85,7 @@ function App() {
   } else {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/visitors",
+        "https://employee-visitor-registration-system.onrender.com/api/visitors",
         {
           method: "POST",
           headers: {
@@ -151,7 +151,7 @@ const editVisitor = (visitor) => {
  const deleteVisitor = async (id) => {
   try {
     const response = await fetch(
-      `http://localhost:5000/api/visitors/${id}`,
+      `https://employee-visitor-registration-system.onrender.com/api/visitors/${id}`,
       {
         method: "DELETE",
       }
